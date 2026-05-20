@@ -10,15 +10,15 @@
         where stat.sid=sess.sid
         union all
         select '/' from dual
-      action_number: "3"
+      action_number: 3.0
       client_terminal: pts/1
       client_user: oracle
       database_user: /
-      dbid: "1643176521"
-      length: "623"
+      dbid: 1.643176521e+09
+      length: 623.0
       privilege: SYSDBA
-      sessionid: "4294967295"
-      status: "0"
+      sessionid: 4.294967295e+09
+      status: 0.0
       user_host: oradb19
     labels:
       compute.googleapis.com/resource_name: hostname

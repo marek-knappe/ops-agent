@@ -1,1 +1,266 @@
-- config_error: "processor \"processor0\" has invalid configuration: type \"int\" not supported for field jsonPayload.connection_id"
+- resourceLogs:
+  - resource:
+      attributes:
+      - key: cloud.availability_zone
+        value:
+          stringValue: test-zone
+      - key: cloud.platform
+        value:
+          stringValue: gcp_compute_engine
+      - key: cloud.project
+        value:
+          stringValue: my-project
+      - key: cloud.region
+        value:
+          stringValue: test-zone
+      - key: gcp.project_id
+        value:
+          stringValue: fake-project
+      - key: gcp.use_legacy_mapping
+        value:
+          stringValue: "true"
+      - key: host.id
+        value:
+          stringValue: test-instance-id
+    scopeLogs:
+    - logRecords:
+      - attributes:
+        - key: compute.googleapis.com/resource_name
+          value:
+            stringValue: hostname
+        - key: gcp.log_name
+          value:
+            stringValue: my-log-name
+        - key: gcp.source_location
+          value:
+            kvlistValue:
+              values:
+              - key: file
+                value:
+                  stringValue: Main.cpp
+              - key: line
+                value:
+                  intValue: "123"
+        - key: logging.googleapis.com/instrumentation_source
+          value:
+            stringValue: agent.googleapis.com/saphana
+        body:
+          kvlistValue:
+            values:
+            - key: component
+              value:
+                stringValue: indexserver
+            - key: message
+              value:
+                stringValue: Started indexserver successfully.
+            - key: severity_flag
+              value:
+                stringValue: i
+            - key: thread_id
+              value:
+                intValue: "12034"
+        observedTimeUnixNano: now
+        severityText: INFO
+        timeUnixNano: "1755533565123456000"
+      - attributes:
+        - key: compute.googleapis.com/resource_name
+          value:
+            stringValue: hostname
+        - key: gcp.log_name
+          value:
+            stringValue: my-log-name
+        - key: gcp.source_location
+          value:
+            kvlistValue:
+              values:
+              - key: file
+                value:
+                  stringValue: BackupManager.cpp
+              - key: line
+                value:
+                  intValue: "245"
+        - key: logging.googleapis.com/instrumentation_source
+          value:
+            stringValue: agent.googleapis.com/saphana
+        body:
+          kvlistValue:
+            values:
+            - key: component
+              value:
+                stringValue: backup
+            - key: connection_id
+              value:
+                intValue: "200001"
+            - key: message
+              value:
+                stringValue: Backup duration exceeded expected threshold.
+            - key: severity_flag
+              value:
+                stringValue: w
+            - key: thread_id
+              value:
+                intValue: "12035"
+            - key: transaction_id
+              value:
+                intValue: "15"
+            - key: update_transaction_id
+              value:
+                intValue: "40637290"
+        observedTimeUnixNano: now
+        severityText: WARNING
+        timeUnixNano: "1755533592654321000"
+      - attributes:
+        - key: compute.googleapis.com/resource_name
+          value:
+            stringValue: hostname
+        - key: gcp.log_name
+          value:
+            stringValue: my-log-name
+        - key: gcp.source_location
+          value:
+            kvlistValue:
+              values:
+              - key: file
+                value:
+                  stringValue: commlibImpl.cpp
+              - key: line
+                value:
+                  intValue: "456"
+        - key: logging.googleapis.com/instrumentation_source
+          value:
+            stringValue: agent.googleapis.com/saphana
+        body:
+          kvlistValue:
+            values:
+            - key: component
+              value:
+                stringValue: commlib
+            - key: message
+              value:
+                stringValue: |-
+                  ERROR: comm::connect to Host: 127.0.0.1, port: 30015, Error: exception  1: no.2110021  (Basis/IO/Stream/impl/NetworkChannel.cpp:2991)
+                  System error: SO_ERROR has pending error for socket. rc=111: Connection refused. channel={<NetworkChannel>={<NetworkChannelBase>={this=139745749931800, fd=22, refCnt=1, local=127.0.0.1/58700_tcp, remote=127.0.0.1/30015_tcp, state=ConnectWait, pending=[----]}}}
+                  exception throw location:
+                   1: 0x00007f1937d9095c in .LTHUNK27.lto_priv.2256+0x558 (libhdbbasis.so)
+                   2: 0x0000563f44888831 in _GLOBAL__sub_I_setServiceStarting.cpp.lto_priv.239+0x520 (hdbnsutil)
+            - key: severity_flag
+              value:
+                stringValue: e
+            - key: thread_id
+              value:
+                intValue: "12036"
+        observedTimeUnixNano: now
+        severityText: ERROR
+        timeUnixNano: "1755533673987654000"
+      - attributes:
+        - key: compute.googleapis.com/resource_name
+          value:
+            stringValue: hostname
+        - key: gcp.log_name
+          value:
+            stringValue: my-log-name
+        - key: gcp.source_location
+          value:
+            kvlistValue:
+              values:
+              - key: file
+                value:
+                  stringValue: StatCollector.cpp
+              - key: line
+                value:
+                  intValue: "333"
+        - key: logging.googleapis.com/instrumentation_source
+          value:
+            stringValue: agent.googleapis.com/saphana
+        body:
+          kvlistValue:
+            values:
+            - key: component
+              value:
+                stringValue: statistics
+            - key: message
+              value:
+                stringValue: Collected performance metrics.
+            - key: severity_flag
+              value:
+                stringValue: d
+            - key: thread_id
+              value:
+                intValue: "12037"
+        observedTimeUnixNano: now
+        severityText: DEBUG
+        timeUnixNano: "1755533710555432000"
+      scope: {}
+  - resource:
+      attributes:
+      - key: cloud.availability_zone
+        value:
+          stringValue: test-zone
+      - key: cloud.platform
+        value:
+          stringValue: gcp_compute_engine
+      - key: cloud.project
+        value:
+          stringValue: my-project
+      - key: cloud.region
+        value:
+          stringValue: test-zone
+      - key: gcp.project_id
+        value:
+          stringValue: fake-project
+      - key: gcp.use_legacy_mapping
+        value:
+          stringValue: "true"
+      - key: host.id
+        value:
+          stringValue: test-instance-id
+    scopeLogs:
+    - logRecords:
+      - attributes:
+        - key: compute.googleapis.com/resource_name
+          value:
+            stringValue: hostname
+        - key: gcp.log_name
+          value:
+            stringValue: my-log-name
+        - key: gcp.source_location
+          value:
+            kvlistValue:
+              values:
+              - key: file
+                value:
+                  stringValue: Main.cpp
+              - key: line
+                value:
+                  intValue: "130"
+        - key: logging.googleapis.com/instrumentation_source
+          value:
+            stringValue: agent.googleapis.com/saphana
+        body:
+          kvlistValue:
+            values:
+            - key: component
+              value:
+                stringValue: indexserver
+            - key: connection_id
+              value:
+                intValue: "200002"
+            - key: message
+              value:
+                stringValue: New client connection established. thread_id=12038
+            - key: severity_flag
+              value:
+                stringValue: i
+            - key: thread_id
+              value:
+                intValue: "12038"
+            - key: transaction_id
+              value:
+                intValue: "16"
+            - key: update_transaction_id
+              value:
+                intValue: "40637291"
+        observedTimeUnixNano: now
+        severityText: INFO
+        timeUnixNano: "1755533780111111000"
+      scope: {}

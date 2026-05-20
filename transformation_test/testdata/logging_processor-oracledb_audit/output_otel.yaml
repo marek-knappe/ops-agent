@@ -1,1 +1,92 @@
-- config_error: "processor \"processor0\" has invalid configuration: type \"int\" not supported for field jsonPayload.action_number"
+- entries:
+  - jsonPayload:
+      action: |-
+        select distinct 'ALTER SYSTEM KILL SESSION ''' || stat.sid || ',' ||
+        			sess.serial# ||
+        			decode(substr(inst.version, 1, 4),
+        					'12.1', ''' immediate ', ''' force timeout 0 ') ||
+        			'-- process 73841'
+        FROM SYS.V$mystat stat, v$session sess, v$instance inst
+        where stat.sid=sess.sid
+        union all
+        select '/' from dual
+      action_number: 3
+      client_terminal: pts/1
+      client_user: oracle
+      database_user: /
+      dbid: 1643176521
+      length: 623
+      privilege: SYSDBA
+      sessionid: 4294967295
+      status: 0
+      timestamp: Wed Sep 14 16:18:03 2022 +00:00
+      user_host: oradb19
+    labels:
+      compute.googleapis.com/resource_name: hostname
+      logging.googleapis.com/instrumentation_source: agent.googleapis.com/oracledb_audit
+    logName: projects/my-project/logs/my-log-name
+    resource:
+      labels:
+        instance_id: test-instance-id
+        zone: test-zone
+      type: gce_instance
+    severity: INFO
+    timestamp: now
+  - jsonPayload:
+      action: |-
+        CREATE TABLE employees (
+            emp_id NUMBER PRIMARY KEY,
+            emp_name VARCHAR2(100),
+            dept_id NUMBER
+        )
+      action_number: 1
+      client_address: 192.168.1.45
+      client_terminal: pts/2
+      client_user: hr_admin
+      database_user: HR_ADMIN
+      dbid: 1643176521
+      length: 145
+      privilege: CONNECT
+      sessionid: 4294967296
+      status: 0
+      timestamp: Thu Oct 05 09:25:17 2022 +00:00
+      user_host: hrserver
+    labels:
+      compute.googleapis.com/resource_name: hostname
+      logging.googleapis.com/instrumentation_source: agent.googleapis.com/oracledb_audit
+    logName: projects/my-project/logs/my-log-name
+    resource:
+      labels:
+        instance_id: test-instance-id
+        zone: test-zone
+      type: gce_instance
+    severity: INFO
+    timestamp: now
+  partialSuccess: true
+- collector_errors:
+  - caller: ottl@v0.151.0/parser.go:410
+    error: "parsing time \"Wed Sep 14 16:18:03 2022 +00:00\" as \"%a %b %d %H:%M:%S %Y %z\": cannot parse \"+00:00\" as \"%z\""
+    level: warn
+    msg: failed to execute statement
+    otelcol.component.id: transform/logs_transformation__test_my-log-name_1
+    otelcol.component.kind: processor
+    otelcol.pipeline.id: logs/logs_transformation__test_my-log-name
+    otelcol.signal: logs
+    resource:
+      service.instance.id: test-service-instance-id
+      service.name: otelopscol
+      service.version: v0.151.0
+    statement: set(log.cache["__time_valid"], true) where ((log.body != nil and log.body["timestamp"] != nil) and Time(log.body["timestamp"], "%a %b %d %H:%M:%S %Y %z") != nil)
+  - caller: ottl@v0.151.0/parser.go:410
+    error: "parsing time \"Thu Oct 05 09:25:17 2022 +00:00\" as \"%a %b %d %H:%M:%S %Y %z\": cannot parse \"+00:00\" as \"%z\""
+    level: warn
+    msg: failed to execute statement
+    otelcol.component.id: transform/logs_transformation__test_my-log-name_1
+    otelcol.component.kind: processor
+    otelcol.pipeline.id: logs/logs_transformation__test_my-log-name
+    otelcol.signal: logs
+    resource:
+      service.instance.id: test-service-instance-id
+      service.name: otelopscol
+      service.version: v0.151.0
+    statement: set(log.cache["__time_valid"], true) where ((log.body != nil and log.body["timestamp"] != nil) and Time(log.body["timestamp"], "%a %b %d %H:%M:%S %Y %z") != nil)
