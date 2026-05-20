@@ -705,8 +705,6 @@ func sanitizeOtelStacktrace(t *testing.T, input string) string {
 	// We need to remove non-deterministic information from stacktraces so the goldens don't keep changing.
 	// Remove $GOPATH
 	result := regexp.MustCompile(`(?m)^\t(.*?)pkg/mod/`).ReplaceAllString(input, "  ")
-	// Normalize Go SDK paths to /usr/local/go/src/
-	result = regexp.MustCompile(`(?m)^\t(.*?)src/`).ReplaceAllString(result, "  /usr/local/go/src/")
 	// Remove function arguments
 	result = regexp.MustCompile(`(?m)^(.*)\(.+\)$`).ReplaceAllString(result, "$1(...)")
 	// Remove anything that looks like an address
